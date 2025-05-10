@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BADBOYS HOTEIS - Conforto e Qualidade em Hospedagem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #000000;
+      --secondary: #11633b;
+      --dark: #222222;
+      --light: #F7FFF7;
+      --accent: #FFE66D;
+      --text: #444444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: var(--accent);
+    }
+
+    .suporte-btn {
+      padding: 0.8rem 1.5rem;
+      background-color: var(--accent);
+      color: var(--dark);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .suporte-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      background-color: #ffd700;
+    }
+
+    .hero {
+      height: 60vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 5%;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta-button {
+      padding: 1rem 2rem;
+      background-color: var(--accent);
+      color: var(--dark);
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      background-color: #ffd700;
+    }
+
+    .container {
+      padding: 3rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h3 {
+      font-size: 2rem;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: 1rem auto 0;
+      color: var(--text);
+    }
+
+    .hoteis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .hotel {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .hotel:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .hotel-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--accent);
+      color: var(--dark);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .hotel-img-container {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hotel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .hotel:hover img {
+      transform: scale(1.05);
+    }
+
+    .hotel-info {
+      padding: 1.5rem;
+    }
+
+    .hotel h4 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .hotel-location {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      color: #666;
+    }
+
+    .hotel-location i {
+      margin-right: 5px;
+    }
+
+    .hotel-amenities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .amenity {
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    .amenity i {
+      margin-right: 5px;
+      color: var(--secondary);
+    }
+
+    .hotel-price {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hotel-price span {
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: #666;
+    }
+
+    .hotel button {
+      padding: 0.8rem;
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .hotel button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .rating {
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .rating i {
+      margin-right: 2px;
+    }
+
+    .rating span {
+      color: #666;
+      font-size: 0.9rem;
+      margin-left: 5px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature i {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .feature h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .feature p {
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .testimonials {
+      background: linear-gradient(135deg, #f5f7fa, #e4e8eb);
+      padding: 4rem 5%;
+      margin: 4rem 0;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .author-info h5 {
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+
+    .author-info p {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .newsletter {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 3rem;
+      border-radius: 10px;
+      text-align: center;
+      margin: 4rem 0;
+    }
+
+    .newsletter h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter p {
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .newsletter-form button {
+      padding: 0 1.5rem;
+      background-color: var(--accent);
+      color: var(--dark);
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background-color: #ffd700;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 5%;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-column h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .footer-column p {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.8rem;
+      color: #bbb;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hoteis-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form input {
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+
+      .newsletter-form button {
+        border-radius: 5px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="logo"><i class="fas fa-hotel"></i> BADBOYS HOTEIS</h1>
+    <button class="suporte-btn"
+      onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=hotelariabadboys@gmail.com&su=Suporte BADBOYS HOTEIS&body=Olá, gostaria de tirar dúvidas sobre...', '_blank')">
+      <i class="fas fa-headset"></i> SUPORTE
+    </button>
+  </header>
+
+  <section class="hero">
+    <h2>Conforto e Qualidade em Nossas Unidades</h2>
+    <p>Descubra a excelência em hospedagem nos melhores hotéis do Maranhão</p>
+    <a href="#hoteis" class="cta-button">Ver Hotéis Disponíveis</a>
+  </section>
+
+  <main class="container">
+    <section class="lista-hoteis" id="hoteis">
+      <div class="section-title">
+        <h3>Nossos Hotéis</h3>
+        <p>Selecione abaixo a unidade que melhor atende às suas necessidades</p>
+      </div>
+
+      <div class="hoteis-grid">
+        <!-- Hotel Braseiro -->
+        <div class="hotel">
+          <div class="hotel-badge">Mais barato</div>
+          <div class="hotel-img-container">
+            <img src='https://i.postimg.cc/jd9jpz0K/fiori-palace-hotel.jpg' alt='Hotel Braseiro'>
+          </div>
+          <div class="hotel-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>(932 avaliações)</span>
+            </div>
+            <h4>Hotel Fiori</h4>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i> Dom Pedro- MA
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi grátis</span>
+              <span class="amenity"><i class="fas fa-swimming-pool"></i> Piscina</span>
+            </div>
+            <div class="hotel-price">
+              R$150 <span>/ noite</span>
+            </div>
+            <button
+              onclick="window.location.href='https://wa.me/5599991461835?text=Olá,%20gostaria%20de%20marcar%20uma%20diária%20no%20Hotel%20Fiori'">
+              <i class="fab fa-whatsapp"></i> Reservar Agora
+            </button>
+          </div>
+        </div>
+
+        <!-- Hotel Brasil -->
+        <div class="hotel">
+          <div class="hotel-badge">Promoção</div>
+          <div class="hotel-img-container">
+            <img src='https://i.postimg.cc/T36DVXnM/hotelbrasil.jpg' alt='Hotel Brasil'>
+          </div>
+          <div class="hotel-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>(128 avaliações)</span>
+            </div>
+            <h4>Hotel Brasil</h4>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i> Presidente Dutra - MA
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi grátis</span>
+              <span class="amenity"><i class="fas fa-swimming-pool"></i> Piscina</span>
+              <span class="amenity"><i class="fas fa-utensils"></i> Café da manhã</span>
+            </div>
+            <div class="hotel-price">
+              R$220 <span>/ noite</span>
+            </div>
+            <button
+              onclick="window.location.href='https://wa.me/5599991461835?text=Olá,%20gostaria%20de%20marcar%20uma%20diária%20no%20Hotel%20Brasil'">
+              <i class="fab fa-whatsapp"></i> Reservar Agora
+            </button>
+          </div>
+        </div>
+
+        <!-- Hotel Belchior Palace -->
+        <div class="hotel">
+          <div class="hotel-badge">Mais Popular</div>
+          <div class="hotel-img-container">
+            <img src='https://i.postimg.cc/KcCqyRhP/belchior.jpg' alt='Hotel Belchior Palace'>
+          </div>
+          <div class="hotel-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(245 avaliações)</span>
+            </div>
+            <h4>Hotel Belchior Palace</h4>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i> Barra do Corda - MA
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi grátis</span>
+              <span class="amenity"><i class="fas fa-swimming-pool"></i> Piscina</span>
+              <span class="amenity"><i class="fas fa-spa"></i> SPA</span>
+              <span class="amenity"><i class="fas fa-utensils"></i> Restaurante</span>
+            </div>
+            <div class="hotel-price">
+              R$450 <span>/ noite</span>
+            </div>
+            <button
+              onclick="window.location.href='https://wa.me/5599991461835?text=Olá,%20gostaria%20de%20marcar%20uma%20diária%20no%20Hotel%20Palace'">
+              <i class="fab fa-whatsapp"></i> Reservar Agora
+            </button>
+          </div>
+        </div>
+
+        <!-- Hotel Premier -->
+        <div class="hotel">
+          <div class="hotel-img-container">
+            <img src='https://i.postimg.cc/5ym6pXwh/Premier.jpg' alt='Hotel Premier'>
+          </div>
+          <div class="hotel-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>(187 avaliações)</span>
+            </div>
+            <h4>Hotel Premier</h4>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i> Balsas - MA
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi grátis</span>
+              <span class="amenity"><i class="fas fa-parking"></i> Estacionamento</span>
+              <span class="amenity"><i class="fas fa-utensils"></i> Restaurante</span>
+              <span class="amenity"><i class="fas fa-dumbbell"></i> Academia</span>
+            </div>
+            <div class="hotel-price">
+              R$500 <span>/ noite</span>
+            </div>
+            <button
+              onclick="window.location.href='https://wa.me/5599991461835?text=Olá,%20gostaria%20de%20marcar%20uma%20diária%20no%20Hotel%20Premier'">
+              <i class="fab fa-whatsapp"></i> Reservar Agora
+            </button>
+          </div>
+        </div>
+
+        <!-- Hotel Rio Poty -->
+        <div class="hotel">
+          <div class="hotel-badge">Luxo</div>
+          <div class="hotel-img-container">
+            <img src='https://i.postimg.cc/qB2CBm01/rio-poti.webp' alt='Hotel Rio Poty'>
+          </div>
+          <div class="hotel-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(312 avaliações)</span>
+            </div>
+            <h4>Hotel Rio Poty</h4>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i> São Luis - MA
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi grátis</span>
+              <span class="amenity"><i class="fas fa-swimming-pool"></i> Piscina</span>
+              <span class="amenity"><i class="fas fa-spa"></i> SPA</span>
+              <span class="amenity"><i class="fas fa-utensils"></i> Restaurante</span>
+              <span class="amenity"><i class="fas fa-concierge-bell"></i> Serviço de quarto</span>
+            </div>
+            <div class="hotel-price">
+              R$700 <span>/ noite</span>
+            </div>
+            <button
+              onclick="window.location.href='https://wa.me/5599991461835?text=Olá,%20gostaria%20de%20marcar%20uma%20diária%20no%20Hotel%20Rio%20Poty'">
+              <i class="fab fa-whatsapp"></i> Reservar Agora
+            </button>
+          </div>
+        </div>
+
+        <!-- Hotel SoftWin -->
+        <div class="hotel">
+          <div class="hotel-badge">Premium</div>
+          <div class="hotel-img-container">
+            <img src='https://i.postimg.cc/Dz675s7q/softwin1.jpg' alt='Hotel SoftWin'>
+          </div>
+          <div class="hotel-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(490 avaliações)</span>
+            </div>
+            <h4>Hotel SoftWin</h4>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i> São Luis - MA
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi grátis</span>
+              <span class="amenity"><i class="fas fa-swimming-pool"></i> Piscina</span>
+              <span class="amenity"><i class="fas fa-spa"></i> SPA</span>
+              <span class="amenity"><i class="fas fa-basketball-ball"></i> Quadra esportiva</span>
+              <span class="amenity"><i class="fas fa-utensils"></i> Restaurante</span>
+            </div>
+            <div class="hotel-price">
+              R$870 <span>/ noite</span>
+            </div>
+            <button
+              onclick="window.location.href='https://wa.me/5599991461835?text=Olá,%20gostaria%20de%20marcar%20uma%20diária%20no%20Hotel%20SoftWin'">
+              <i class="fab fa-whatsapp"></i> Reservar Agora
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <i class="fas fa-shield-alt"></i>
+        <h4>Segurança Garantida</h4>
+        <p>Todos os nossos hotéis possuem sistemas de segurança 24h e monitoramento para sua tranquilidade.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-hand-holding-usd"></i>
+        <h4>Melhor Preço</h4>
+        <p>Garantimos os melhores preços do mercado com descontos exclusivos para reservas pelo site.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-concierge-bell"></i>
+        <h4>Atendimento Premium</h4>
+        <p>Nossa equipe está sempre pronta para superar suas expectativas e tornar sua estadia inesquecível.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-map-marked-alt"></i>
+        <h4>Localizações Privilegiadas</h4>
+        <p>Unidades estrategicamente localizadas próximas aos principais pontos turísticos e de negócios.</p>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="section-title">
+        <h3>O que nossos clientes dizem</h3>
+        <p>Veja a opinião de quem já experimentou a experiência Badboys Hotelaria</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="testimonial-text">
+            "Fiquei impressionado com a qualidade do atendimento no Hotel Rio Poty. O quarto era impecável e a vista
+            para o rio era deslumbrante. Com certeza voltarei!"
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva">
+            <div class="author-info">
+              <h5>Genival Rodrigues</h5>
+              <p>Químico</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-text">
+            "O Belchior Palace superou todas as expectativas. O SPA é maravilhoso e os funcionários são extremamente
+            atenciosos. Recomendo para quem busca conforto e luxo."
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Paula">
+            <div class="author-info">
+              <h5>Ana Clara</h5>
+              <p>Influenciadora Digital</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-text">
+            "Reservei pelo site e o processo foi super fácil, já que o site já redireciona para o WhatsApp. O Hotel
+            Brasil tem um ótimo custo-benefício e está bem localizado. Adorei a piscina e o café da manhã!"
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Roberto Almeida">
+            <div class="author-info">
+              <h5>Cesar Mauro</h5>
+              <p>Engenheiro Elétrico</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <h3>Receba Ofertas Exclusivas</h3>
+      <p>Assine nossa newsletter e seja o primeiro a receber promoções especiais e descontos em nossas unidades.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Digite seu melhor e-mail">
+        <button type="submit">Assinar <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>Sobre Nós</h4>
+        <p>A BadBoys hotelaria é uma rede comprometida em oferecer experiências únicas de hospedagem com conforto,
+          qualidade e atendimento personalizado.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Links Úteis</h4>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#hoteis">Nossos Hotéis</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contato</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Av. Tranquedo Neves, 300- Presidente Dutra- MA</p>
+        <p><i class="fas fa-phone-alt"></i> (99) 99146-1836</p>
+        <p><i class="fas fa-envelope"></i> hotelariabadboys@gmail.com</p>
+        <p><i class="fab fa-whatsapp"></i> (99) 98549-1899</p>
+      </div>
+      <div class="footer-column">
+        <h4>Formas de Pagamento</h4>
+        <p>Aceitamos todas as principais formas de pagamento:</p>
+        <div style="margin-top: 15px; font-size: 1.5rem;">
+          <i class="fab fa-cc-visa" style="margin-right: 10px;"></i>
+          <i class="fab fa-cc-mastercard" style="margin-right: 10px;"></i>
+          <i class="fab fa-cc-amex" style="margin-right: 10px;"></i>
+          <i class="fab fa-cc-paypal" style="margin-right: 10px;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2023 BADBOYS HOTEIS. Todos os direitos reservados.
+    </div>
+  </footer>
+</body>
+
+</html>
